@@ -11,10 +11,10 @@ def process():
     parser.add_argument('--out', help='Choose name of output file')
     arguments = parser.parse_args()
     
+    mygraph = Greengraph(arguments.start, arguments.end)
+    data = mygraph.green_between(arguments.steps)
+    plt.plot(data)
+    plt.savefig(arguments.out)
+    
 if __name__ == "__main__":
     process()
-    
-mygraph = Greengraph(arguments.start, arguments.end)
-data = mygraph.green_between(arguments.steps)
-plt.plot(data)
-plt.savefig(arguments.out)
