@@ -3,7 +3,7 @@ from argparse import ArgumentParser
 from greengraph import Greengraph
 from matplotlib import pyplot as plt
 
-def process()
+def process():
     parser = ArgumentParser(description = "Plot the 'green-ness' of satellite images between two places")
     parser.add_argument('--start', help='Choose a start location')
     parser.add_argument('--end', help='Choose an end location')
