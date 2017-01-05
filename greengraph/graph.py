@@ -1,5 +1,5 @@
 
-from .map import Map
+from greengraph.map import Map
 import geopy
 import numpy as np
 
