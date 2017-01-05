@@ -1,0 +1,2 @@
+
+This package calculates the 'green-ness' between two locations using data from Google maps. It was produced for the first coursework of the UCL course MPHYG001 Research Software Engineering running 2016/17.
