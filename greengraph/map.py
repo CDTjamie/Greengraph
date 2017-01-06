@@ -6,8 +6,6 @@ import requests
 
 class Map(object):
     def __init__(self, lat, long, satellite=True, zoom=10, size=(400,400), sensor=False):
-        if type(lat) != float or type(long) != float:
-            raise TypeError("lat and long must be type float")
         if float(lat) < -90.0 or float(lat) > 90.0:
             raise ValueError("latitude must be between -90 and +90")
         if float(long) <-180.0 or float(long) > 180.0:
