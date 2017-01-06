@@ -6,6 +6,13 @@ import requests
 
 class Map(object):
     def __init__(self, lat, long, satellite=True, zoom=10, size=(400,400), sensor=False):
+        if type(lat) != float or type(long) != float:
+            raise TypeError("lat and long must be type float")
+        if float(lat) < -90.0 or float(lat) > 90.0:
+            raise ValueError("latitude must be between -90 and +90")
+        if float(long) <-180.0 or float(long) > 180.0:
+            raise ValueError("longitude must be between -180 and +180")
+        
         base="http://maps.googleapis.com/maps/api/staticmap?"
         
         params=dict(sensor= str(sensor).lower(), zoom= zoom, size= "x".join(map(str, size)), center= ",".join(map(str, (lat, long) )), style="feature:all|element:labels|visibility:off")
@@ -17,6 +24,11 @@ class Map(object):
         self.pixels = img.imread(BytesIO(self.image))
         
     def green(self, threshold):
+        if type(threshold) != (int or float):
+            raise TypeError("threshold input to green function must be an integer or float")
+        if float(threshold) <= 0:
+            raise ValueError("threshold must be a positive number")
+        
         greener_than_red = self.pixels[:,:,1] > threshold*self.pixels[:,:,0]
         greener_than_blue = self.pixels[:,:,1] > threshold*self.pixels[:,:,2]
         green = np.logical_and(greener_than_red, greener_than_blue)
