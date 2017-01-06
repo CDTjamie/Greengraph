@@ -33,7 +33,7 @@ class Greengraph(object):
         return np.vstack([lats, longs]).transpose()
     
     def green_between(self, steps):
-        if float(steps) != int(float(steps))
+        if float(steps) != int(float(steps)):
             raise TypeError("No. steps must be an integer")
         if float(steps) <= 0:
             raise ValueError("No. steps must be a positive integer")
