@@ -1,5 +1,17 @@
-from nose.tools import assert_raises
+from nose.tools import assert_raises, assert_equal
 from greengraph import Greengraph
+import yaml
+import os
+
+def test_coordinates():
+    with open(os.path.join(os.path.dirname(__file__),'fixtures','samples.yaml')) as fixtures_file:
+        fixtures = yaml.load(fixtures_file)
+        for fixture in fixtures:
+            name = fixture.pop('name')
+            lat = fixture.pop('lat')
+            long = fixture.pop('long')
+            greenness = fixture.pop('greenness')
+            assert_equal(Greengraph(name, 'Birmingham').geolocate(name), (lat, long))
 
 def test_location_sequence():
     with assert_raises(TypeError) as exception: Greengraph('London', 'Oxford').location_sequence([50.0, 0.0], [52.0, -1.0], 10.2)
