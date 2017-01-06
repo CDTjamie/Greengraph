@@ -14,12 +14,12 @@ def test_coordinates():
             assert_equal(Greengraph(name, 'Birmingham').geolocate(name), (lat, long))
 
 def test_location_sequence():
-    with assert_raises(TypeError) as exception: Greengraph('London', 'Oxford').location_sequence([50.0, 0.0], [52.0, -1.0], 10.2)
-    with assert_raises(ValueError) as exception: Greengraph('London', 'Oxford').location_sequence([50.0, 0.0], [52.0, -1.0], -2)
-    with assert_raises(TypeError) as exception: Greengraph('London', 'Oxford').location_sequence('London', [52.0, -1.0], 20)
-    with assert_raises(TypeError) as exception: Greengraph('London', 'Oxford').location_sequence([50.0, 0.0], 7.2, 20)
-    with assert_raises(ValueError) as exception: Greengraph('London', 'Oxford').location_sequence([50.0, 0.0, 3.7], [52.0, -1.0], 20)
-    with assert_raises(ValueError) as exception: Greengraph('London', 'Oxford').location_sequence([50.0, 0.0], [52.0, -1.0, 3.7], 20)
+    with assert_raises(TypeError) as exception: Greengraph('London', 'Oxford').location_sequence((50.0, 0.0), (52.0, -1.0), 10.2)
+    with assert_raises(ValueError) as exception: Greengraph('London', 'Oxford').location_sequence((50.0, 0.0), (52.0, -1.0), -2)
+    with assert_raises(TypeError) as exception: Greengraph('London', 'Oxford').location_sequence('London', (52.0, -1.0), 20)
+    with assert_raises(TypeError) as exception: Greengraph('London', 'Oxford').location_sequence((50.0, 0.0), 7.2, 20)
+    with assert_raises(ValueError) as exception: Greengraph('London', 'Oxford').location_sequence((50.0, 0.0, 3.7), (52.0, -1.0), 20)
+    with assert_raises(ValueError) as exception: Greengraph('London', 'Oxford').location_sequence((50.0, 0.0), (52.0, -1.0, 3.7), 20)
 
 def test_geolocate():
     with assert_raises(TypeError) as exception: Greengraph('London', 'Oxford').geolocate(3.14)
