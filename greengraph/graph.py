@@ -19,7 +19,7 @@ class Greengraph(object):
         return self.geocoder.geocode(place, exactly_one=False)[0][1]
     
     def location_sequence(self, start, end, steps):
-         if type(steps) != int:
+        if type(steps) != int:
             raise TypeError("No. steps must be an integer")
         if float(steps) <= 0:
             raise ValueError("No. steps must be a positive integer")
