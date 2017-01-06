@@ -23,7 +23,7 @@ class Greengraph(object):
             raise TypeError("No. steps must be an integer")
         if float(steps) <= 0:
             raise ValueError("No. steps must be a positive integer")
-        if type(start) != list or type(end) != list:
+        if type(start) != tuple or type(end) != tuple:
             raise TypeError("start, end input to location sequence incorrect type")
         if len(start) != 2 or len(end) != 2:
             raise ValueError("start, end input to location sequence must be array of length 2")
