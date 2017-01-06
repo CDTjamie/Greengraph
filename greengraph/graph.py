@@ -18,4 +18,9 @@ class Greengraph(object):
         return np.vstack([lats, longs]).transpose()
     
     def green_between(self, steps):
+        if type(steps) != int:
+            raise TypeError("No. steps should be an integer")
+        if float(steps) <= 0:
+            raise ValueError("No.steps should be a positive integer")
+            
         return [Map(*location).count_green() for location in self.location_sequence(self.geolocate(self.start), self.geolocate(self.end), steps)]
