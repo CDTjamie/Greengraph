@@ -15,7 +15,6 @@ class Map(object):
          
         self.image = requests.get(base, params=params).content
         self.pixels = img.imread(BytesIO(self.image))
-        self.address = requests.get(base, params=params)
         
     def green(self, threshold):
         greener_than_red = self.pixels[:,:,1] > threshold*self.pixels[:,:,0]
