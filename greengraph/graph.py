@@ -5,6 +5,9 @@ import numpy as np
 
 class Greengraph(object):
     def __init__(self, start, end):
+        if type(start) != str or type(end) != str:
+            raise TypeError("Start and end point must be strings")
+        
         self.start = start
         self.end = end
         self.geocoder = geopy.geocoders.GoogleV3(domain="maps.google.co.uk")
