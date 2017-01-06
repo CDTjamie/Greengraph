@@ -24,7 +24,7 @@ class Map(object):
         self.pixels = img.imread(BytesIO(self.image))
         
     def green(self, threshold):
-        if type(threshold) != (int or float):
+        if type(threshold) != int and type(threshold) != float:
             raise TypeError("threshold input to green function must be an integer or float")
         if float(threshold) <= 0:
             raise ValueError("threshold must be a positive number")
